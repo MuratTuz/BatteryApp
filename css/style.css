@@ -1,0 +1,68 @@
+
+
+
+.battery-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px auto;
+}
+.charge, .decharge {
+    height: 50px;
+    padding: 25px;
+}
+.charge {
+    border-right: 1px solid black;
+}
+
+input[type="number"] {
+    border: 2px solid black;
+    width: 40px;
+    font: inherit;
+}
+button {
+    border: 2px solid black;
+    width: 100px;
+    padding: 0px;
+    font: inherit;
+    color: whitesmoke;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+}
+.cell-charged {
+    background-color: olivedrab;
+    border-right: 1px solid black;
+    flex: 1;
+}
+
+.cell-decharged {
+    background-color: #a70e0e;
+    border-right: 1px solid black;
+    flex: 1;
+}
+
+.battery-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+}
+.battery {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    width: 40%;
+    height: 100px;
+}
+
+/*
+* {
+    background: #000 !important;
+    color: #0f0 !important;
+    outline: solid #f00 1px !important;
+  }
+  */
