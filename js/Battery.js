@@ -4,10 +4,10 @@
 
 class Battery {
     constructor(pCellCount) {
-        this.cells = Array(pCellCount).fill(new Cell()); // Cell
+        this.cells = Array(pCellCount).fill(new Cell()); 
         this.chargingTime = 0;
         this.dechargingTime = 0;
-        this.lastCell = 0;
+        this.lastCell = -1;
     }
 
     getLastCell() {
@@ -15,7 +15,7 @@ class Battery {
     }
 
     getCellsCount() {
-        return this.cells.length;
+        return this.cells.length -1;
     }
 
     getTiming() {
@@ -31,13 +31,13 @@ class Battery {
     }
 
     setCharge() {
-        this.cells[this.lastCell].setCharge();
         this.lastCell++; 
+        this.cells[this.lastCell].setCharge();
     }
 
     setDecharge() {
-        this.lastCell--; 
         this.cells[this.lastCell].setCharge();
+        this.lastCell--; 
     }
 
 }
