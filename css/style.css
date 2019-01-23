@@ -10,6 +10,9 @@
 .charge, .decharge {
     height: 50px;
     padding: 25px;
+    /*display: flex;
+    flex-direction: row;
+    justify-content: baseline;*/
 }
 .charge {
     border-right: 1px solid black;
@@ -19,6 +22,8 @@ input[type="number"] {
     border: 2px solid black;
     width: 40px;
     font: inherit;
+    transition: width .50s ease;
+    -webkit-transition: width .50s ease;
 }
 button {
     border: 2px solid black;
@@ -26,6 +31,9 @@ button {
     padding: 0px;
     font: inherit;
     color: whitesmoke;
+}
+[type]:focus {
+    width: 100px;
 }
 
 .info {
@@ -38,11 +46,15 @@ button {
     flex: 1;
 }
 
+
 .button-decharge {
     background-color: #a70e0e;
     border-right: 1px solid black;
     flex: 1;
+    transition: all .50s ease-in-out;
+    -webkit-transition: all .50s ease-in-out;
 }
+
 
 .cell-empty {
     background-color: #f5f5f5;
@@ -65,11 +77,3 @@ button {
     height: 100px;
 }
 
-
-/*
-* {
-    background: #000 !important;
-    color: #0f0 !important;
-    outline: solid #f00 1px !important;
-  }
-  */

@@ -6,6 +6,7 @@ $(function(){
 
     let battery = undefined;
     let timer = undefined;
+    let lastProcess = undefined;
 
     function createCell() {
         for (let index = 0; index < battery.getCellsCount(); index++) {
@@ -16,40 +17,52 @@ $(function(){
 
     function setChargeButtonListener() {
         $('#charge-button').on('click', () => {
-            if (timer) {
-                clearInterval(timer);
-            }
             let chargingTime = $('#charging-time').val();
-            battery.setChargingTime(chargingTime);
-            timer = setInterval(() => {
-                battery.setCharge();
-                const index = battery.getLastCell();
-                $('.info').html(`<p>Battery charge %${(index + 1) * 10}</p>`);
-                cellColor(index);
-                if (index === (battery.getCellsCount() - 1)) {
+            if ((chargingTime > 0) && (lastProcess !== 'Charge')) {
+                if (timer) {
                     clearInterval(timer);
                 }
-            }, battery.getTiming());
+
+                battery.setChargingTime(chargingTime);
+                timer = setInterval(() => {
+                    battery.setCharge();
+                    const index = battery.getLastCell();
+                    $('.info').html(`<p>Battery charging %${(index + 1) * 10}</p>`);
+                    cellColor(index);
+                    if (index === (battery.getCellsCount() - 1)) {
+                        clearInterval(timer);
+                    }
+                }, battery.getTiming());
+
+                lastProcess = 'Charge';
+            }
+
         });
     }
 
     function setDechargeButtonListener() {
         $('#decharge-button').on('click', () => {
-            if (timer) {
-                clearInterval(timer);
-            }
             let dechargingTime = $('#decharging-time').val();
-            battery.setChargingTime(dechargingTime);
-            timer = setInterval(() => {
-                battery.setDecharge();
-                const index = battery.getLastCell() + 1;
-                $(`#cell${index}`).css('background-color', `#F5F5F5`);
-                $('.info').html(`<p>Battery charge %${index * 10}</p>`);
-                cellColor(index - 1);
-                if (index === 0) {
+            if ((dechargingTime > 0) && (lastProcess !== 'Decharge')) {
+                if (timer) {
                     clearInterval(timer);
                 }
-            }, battery.getTiming());
+    
+                battery.setChargingTime(dechargingTime);
+                timer = setInterval(() => {
+                    battery.setDecharge();
+                    const index = battery.getLastCell() + 1;
+                    $(`#cell${index}`).css('background-color', `#F5F5F5`);
+                    $('.info').html(`<p>Battery decharging %${index * 10}</p>`);
+                    cellColor(index - 1);
+                    if (index === 0) {
+                        clearInterval(timer);
+                    }
+                }, battery.getTiming());
+
+                lastProcess = 'Decharge';
+            }
+
         });
     }
 
