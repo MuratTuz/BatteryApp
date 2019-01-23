@@ -15,7 +15,7 @@ class Battery {
     }
 
     getCellsCount() {
-        return this.cells.length -1;
+        return this.cells.length;
     }
 
     getTiming() {
