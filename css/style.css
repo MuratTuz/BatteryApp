@@ -44,12 +44,12 @@ button {
     background-color: #6b8e23;
     border-right: 1px solid black;
     flex: 1;
-    transform:scaleY(1);
-    transition: all .50s ease-in-out;
+    transform:scaleY(1) scaleX(1) translateX(0px);
+    transition: all .75s ease-in-out;
     -webkit-transition: all .50s ease-in-out;
 }
 .button-charge:focus {
-    transform:scaleY(2);
+    transform:scaleY(2) scaleX(2) translateX(-50px);
     color: black;
 }
 
@@ -58,12 +58,12 @@ button {
     background-color: #a70e0e;
     border-right: 1px solid black;
     flex: 1;
-    transform:scaleY(1);
-    transition: all .50s ease-in-out;
+    transform:scaleY(1) scaleX(1) translateX(0px);
+    transition: all .75s ease-in-out;
     -webkit-transition: all .50s ease-in-out;
 }
 .button-decharge:focus {
-    transform:scaleY(2);
+    transform:scaleY(2) scaleX(2) translateX(-60px);
     color: black;
 }
 
