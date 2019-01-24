@@ -6,7 +6,7 @@ $(function(){
 
     let battery = undefined;
     let timer = undefined;
-    let lastProcess = undefined;
+    let lastProcess = 'Decharge';
 
     function createCell() {
         for (let index = 0; index < battery.getCellsCount(); index++) {
@@ -48,7 +48,7 @@ $(function(){
                     clearInterval(timer);
                 }
     
-                battery.setChargingTime(dechargingTime);
+                battery.setDechargingTime(dechargingTime);
                 timer = setInterval(() => {
                     battery.setDecharge();
                     const index = battery.getLastCell() + 1;

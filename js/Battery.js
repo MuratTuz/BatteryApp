@@ -36,7 +36,7 @@ class Battery {
     }
 
     setDecharge() {
-        this.cells[this.lastCell].setCharge();
+        this.cells[this.lastCell].setDecharge();
         this.lastCell--; 
     }
 

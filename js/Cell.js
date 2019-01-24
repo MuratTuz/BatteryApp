@@ -16,9 +16,6 @@ class Cell {
     }
 
     checkCharge() {
-        if (this.charge === true) {
-            return true;
-        }
-        return false;
+        return this.charge;
     }
 }
