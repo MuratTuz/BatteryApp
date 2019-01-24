@@ -44,6 +44,13 @@ button {
     background-color: #6b8e23;
     border-right: 1px solid black;
     flex: 1;
+    transform:scaleY(1);
+    transition: all .50s ease-in-out;
+    -webkit-transition: all .50s ease-in-out;
+}
+.button-charge:focus {
+    transform:scaleY(2);
+    color: black;
 }
 
 
@@ -51,8 +58,13 @@ button {
     background-color: #a70e0e;
     border-right: 1px solid black;
     flex: 1;
+    transform:scaleY(1);
     transition: all .50s ease-in-out;
     -webkit-transition: all .50s ease-in-out;
+}
+.button-decharge:focus {
+    transform:scaleY(2);
+    color: black;
 }
 
 
